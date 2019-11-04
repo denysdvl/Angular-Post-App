@@ -1,23 +1,27 @@
-<div class="container" >
-  <h2>Angular Posts</h2>
-  <div *ngIf="!loading; else loadingBlock">
-      <mat-nav-list>
-          <div mat-list-item *ngFor="let postsUser of postsUsers">
-              <mat-card class="example-card">
-                  <mat-card-header>
-                    <mat-card-title>{{postsUser.name}}</mat-card-title>
-                    <mat-card-subtitle>{{postsUser.title}}</mat-card-subtitle>
-                  </mat-card-header>
-                  <mat-card-actions align="end">
-                      <button mat-raised-button (click)="openDialog(postsUser.id)">Open Post</button>
-                    </mat-card-actions>
-                </mat-card>
-          </div>
-      </mat-nav-list>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>
+      <button  type="button" [disabled]="!menuDisplay" mat-button (click)="drawer.toggle()">
+        <i class="material-icons">menu</i>
+      </button>
+    </span>
+    <span>
+      <a mat-button [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active"
+        [routerLink]="[ '/main' ]" (click)="active()">Main</a> </span>
+    <span> <a mat-button routerLinkActive="active" [routerLink]="[ '/info' ]" (click)="drawer.close();disActive()" >Info</a></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <div class="menu-sidenav">
+        <span> <a mat-button routerLinkActive="active" [routerLink]="[ 'main/todo' ]">Todo</a></span>
+        <span> <a mat-button routerLinkActive="active" [routerLink]="[ 'main/posts' ]">Posts</a></span>
+    </div>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <router-outlet></router-outlet>
   </div>
-  <ng-template #loadingBlock >
-      <mat-spinner class="spinner" ></mat-spinner>
-    </ng-template>
 
-
-</div>
+</mat-drawer-container>

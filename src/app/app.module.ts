@@ -4,24 +4,35 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './module/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
-import { CartPostComponent } from './cart-post/cart-post.component'
+import { CardPostDialogComponent } from './card-post-dialog/card-post-dialog.component';
+import { InfoComponent } from './info/info.component';
+import { PostsListComponent } from './posts-list/posts-list.component'
+import { AppRoutingModule } from './app-routing.module';
+import { TodosComponent } from './todos/todos.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CartPostComponent
+    CardPostDialogComponent,
+    InfoComponent,
+    PostsListComponent,
+    TodosComponent,
+    MainComponent
   ],
   entryComponents:[
-    CartPostComponent
+    CardPostDialogComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

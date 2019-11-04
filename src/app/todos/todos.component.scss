@@ -1,0 +1,52 @@
+.card {
+  padding: 1rem;
+  margin: 0.7rem 0;
+  width: 800px;
+  display: flex;
+
+  form {
+    .form-grup {
+      display: flex;
+      flex-direction: column;
+      width: 85%;
+    }
+  }
+}
+
+.example-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-add {
+  height: fit-content;
+}
+
+mat-card {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+mat-list-item {
+  margin-bottom: 1rem;
+}
+
+mat-card-actions {
+  margin-top: 15px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.spinner {
+  left: 50%;
+  top: 30%;
+  position: absolute;
+  z-index: 20;
+}

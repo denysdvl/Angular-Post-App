@@ -1,0 +1,18 @@
+<div *ngIf="!loading; else loadingBlock">
+  <mat-nav-list>
+    <div mat-list-item *ngFor="let postsUser of postsUsers">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{postsUser.name}}</mat-card-title>
+          <mat-card-subtitle>{{postsUser.title}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions align="end">
+          <button mat-raised-button (click)="openDialog(postsUser.id)">Open Post</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-nav-list>
+</div>
+<ng-template #loadingBlock>
+  <mat-spinner class="spinner"></mat-spinner>
+</ng-template>

@@ -1,0 +1,35 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <button mat-mini-fab mat-dialog-close>
+      <i class="material-icons">clear</i>
+    </button>
+    <mat-card-title>
+      {{data.name}}
+    </mat-card-title>
+    <mat-card-subtitle>{{data.title}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{data.body}}
+    </p>
+  </mat-card-content>
+  <mat-card-footer>
+    <h4>Comments</h4>
+    <hr>
+    <div *ngIf="!loading; else loadingBlock">
+      <mat-list *ngFor="let comment of comments">
+        <mat-list-item>
+          <div class="comment">
+            <h4 matLine> {{comment.name}}</h4>
+            <p matSubheader> {{comment.body}} </p>
+          </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </div>
+    <ng-template #loadingBlock>
+      <mat-spinner class="spinner" [diameter]="50">
+      </mat-spinner>
+    </ng-template>
+  </mat-card-footer>
+</mat-card>
